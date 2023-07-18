@@ -19,8 +19,12 @@ def encode_password(input_password):  # shifts all digits 3 numbers up
     return int(encoded)
 
 
-# def decode_password():  # shifts all digits 3 numbers down
-#    exit()
+def decode(encoded): # shifts all digits 3 numbers down
+    decoded = ''
+    encoded_str = str(encoded)
+    for i in range(len(encoded_str)):
+        decoded = decoded + str((int(encoded_str[i])-3) if (int(encoded_str[i])-3 >= 0) else (int(encoded_str[i])+7))
+    return decoded
 
 
 if __name__ == '__main__':  # required if main
@@ -35,10 +39,7 @@ if __name__ == '__main__':  # required if main
             encoded_pw = encode_password(pw_input)
             print("Your password has been encoded and stored!")
         elif option == 2:  # print encoded password and original password
-            print("The encoded password is " + str(encoded_pw) +
-                  ", and the original password is " + str(password) + ".")
-            # the original password should not be stored, only the encoded password
-            # replace the password being stored with decode password function
+            print(f"The encoded password is {str(encoded_pw)}, and the original password is {decode(encoded_pw)}.")
         elif option == 3:  # quit program
             break
         else:  # because why not
