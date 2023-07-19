@@ -1,8 +1,7 @@
 # Originally written by Michael Jagiello, included main function and encoding
-# imports
+# import(s)
 
 # define variable(s)
-password = 0  # should not be in here once decode is implemented
 encoded_pw = 0
 
 
@@ -19,7 +18,7 @@ def encode_password(input_password):  # shifts all digits 3 numbers up
     return int(encoded)
 
 
-def decode(encoded): # shifts all digits 3 numbers down
+def decode(encoded):  # shifts all digits 3 numbers down
     decoded = ''
     encoded_str = str(encoded)
     for i in range(len(encoded_str)):
@@ -35,7 +34,6 @@ if __name__ == '__main__':  # required if main
         if option == 1:  # encode inputted password
             print("Please enter your password to encode: ")
             pw_input = input()
-            password = pw_input
             encoded_pw = encode_password(pw_input)
             print("Your password has been encoded and stored!")
         elif option == 2:  # print encoded password and original password
